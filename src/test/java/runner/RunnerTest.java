@@ -9,7 +9,7 @@ import utils.RestUtils;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/features/",
-        tags = "@categoria", //exemplo, as tags usa @ la na feature, e dá pra usar tags de 2 features diferentes
+        tags = "", //exemplo, as tags usa @ la na feature, e dá pra usar tags de 2 features diferentes
         //desde que esteja no mesmo caminho
         glue = "steps", //o glue é onde direciona onde está nossos steps, pra não criar repetido
         plugin = {"json:target/reports/cucumberReports.json", "pretty"},
@@ -21,6 +21,6 @@ public class RunnerTest {
 
     @BeforeClass
     public static void beforeClass() throws Exception {
-        RestUtils.setBaseURI("http://localhost:8080/");
+        RestUtils.setBaseURI("http://localhost:8181/");
     }
 }

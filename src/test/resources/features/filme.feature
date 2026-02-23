@@ -3,7 +3,7 @@
 Funcionalidade: CRUD Filme
 
   Contexto:#é parecido com um beforeall, ele executa antes de cada cenario
-    #ai no caso, não preciso colocar essa parte de novo embaixo, posso deixar apenas aqui
+    #ai no caso, não preciso colocar essa parte de novo embaixo, posso deixar apenas aqui, por isso os de baixo estão comentados
     Dado que tenha realizado o login com dados validos
     E que tenha um payload valido da API de Filme
 
