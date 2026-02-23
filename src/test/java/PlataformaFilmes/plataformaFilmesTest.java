@@ -33,9 +33,9 @@ public class plataformaFilmesTest {
 //                .body(json)
 //                .when()
 //                .post("auth")
-////                .then()
-////                .extract()
-////                .response();
+//               .then()
+//                .extract()
+//               .response();
 //                .thenReturn(); //Substituí os 3 métodos acima.
 
         Response response = RestUtils.post(json, ContentType.JSON, "auth");//substitui a estrutura de cima toda. Fica mais pratico
@@ -48,7 +48,7 @@ public class plataformaFilmesTest {
 
     }
     @BeforeAll
-   // @Test   //Outra opção de estrutura pra rodar tudo que fizemos acima
+   // @Test //Outra opção de estrutura pra rodar tudo que fizemos acima
     //Estrutura mais facil, limpa, simples e objetiva. Map é um metodo melhor
     //public void validarLoginMap(){
     public static void validarLoginMap(){ //Com o beforeall, tudo tem que ser static
@@ -78,7 +78,7 @@ public class plataformaFilmesTest {
     public void validarConsultaCategorias(){
         Map<String, String> header = new HashMap<>();
 //        header.put("Authorization", "Bearer " +token);
-        header.put("Authorization", "Bearer " +LoginMap.token);
+        header.put("Authorization", "Bearer "+LoginMap.token);
 
         Response response = RestUtils.get(header, "categorias");
 

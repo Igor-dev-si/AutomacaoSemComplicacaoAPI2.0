@@ -18,8 +18,8 @@ public class LoginSteps {
         RestUtils.setBaseURI(url);
     }
 
-    @Dado("que tenha um payload da API de Login com as segiuntes informacoes")
-    public void queTenhaUmPayloadDaAPIDeLoginComAsSegiuntesInformacoes(Map<String, String> map) {
+    @Dado("que tenha um payload da API de Login com as seguintes informacoes")
+    public void queTenhaUmPayloadDaAPIDeLoginComAsSeguintesInformacoes(Map<String, String> map) {
         LoginMap.initLogin();
         RestUtils.setBaseURI(url);
         LoginMap.getLogin().putAll(map);
@@ -33,5 +33,12 @@ public class LoginSteps {
     @Entao("armazeno o token e recebo do response de Login")
     public void armazenoOTokenEReceboDoResponseDeLogin() {
         LoginMap.token = RestUtils.getResponse().jsonPath().get("token");
+    }
+
+    @Dado("que tenha realizado o login com dados validos")
+    public void queTenhaRealizadoOLoginComDadosValidos() {
+        queTenhaUmPayloadValidoDaAPIDeLogin();
+        envioUmaRequisicaoDoTipoPOSTDeLogin();
+        armazenoOTokenEReceboDoResponseDeLogin();
     }
 }

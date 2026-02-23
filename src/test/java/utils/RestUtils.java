@@ -35,6 +35,19 @@ public class RestUtils {
                 .log().all()
                 .extract().response();
     }
+    public static Response post(Map<String, String> header, Object json, ContentType contentType, String endpoint){
+        return response = RestAssured.given()
+                .contentType(contentType)
+                .headers(header)
+                .log().all()
+                .body(json)
+                .when()
+                .post(endpoint)
+                .then()
+                .log().all()
+                .extract().response();
+    }
+
     public static Response get(Map<String, String> header, String endpoint) {
         return RestAssured.given()
                 .relaxedHTTPSValidation()
@@ -46,6 +59,45 @@ public class RestUtils {
                 .log().all()
                 .when()
                 .get(endpoint)
+                .then()
+                .log().all()
+                .extract().response();
+    }
+
+    public static Response get(Map<String, String> header,
+                               Map<String, Object> param, String endpoint) {
+        return RestAssured.given()
+                .relaxedHTTPSValidation()
+                .headers(header)
+                .params(param)
+                .log().all()
+                .when()
+                .get(endpoint)
+                .then()
+                .log().all()
+                .extract().response();
+    }
+
+    public static Response put(Map<String, String> header, Object json, ContentType contentType, String endpoint){
+        return response = RestAssured.given()
+                .contentType(contentType)
+                .headers(header)
+                .log().all()
+                .body(json)
+                .when()
+                .put(endpoint)
+                .then()
+                .log().all()
+                .extract().response();
+    }
+
+    public static Response delete(Map<String, String> header, String endpoint) {
+        return RestAssured.given()
+                .relaxedHTTPSValidation()
+                .headers(header)
+                .log().all()
+                .when()
+                .delete(endpoint)
                 .then()
                 .log().all()
                 .extract().response();
