@@ -9,18 +9,16 @@ import utils.RestUtils;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/features/",
-        tags = "", //exemplo, as tags usa @ la na feature, e dá pra usar tags de 2 features diferentes
-        //desde que esteja no mesmo caminho
-        glue = "steps", //o glue é onde direciona onde está nossos steps, pra não criar repetido
+        tags = "",
+        glue = "steps",
         plugin = {"json:target/reports/cucumberReports.json", "pretty"},
-        snippets = CucumberOptions.SnippetType.CAMELCASE //java usa camelcase, camelcase começa com letra minuscula e não tem espaço
-        //Tudo isso pode ser colocado numa linha só, um do lado do outro
+        snippets = CucumberOptions.SnippetType.CAMELCASE
 
 )
 public class RunnerTest {
 
     @BeforeClass
     public static void beforeClass() throws Exception {
-        RestUtils.setBaseURI("http://localhost:8181/");
+        RestUtils.setBaseURI("http://localhost:8080/");
     }
 }
